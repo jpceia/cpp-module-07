@@ -6,7 +6,7 @@
 /*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 00:32:00 by jpceia            #+#    #+#             */
-/*   Updated: 2021/12/22 22:25:21 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/12/22 23:57:04 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void swap(T &a, T &b)
 }
 
 template <typename T>
-T min(const T& a, const T& b)
+T& min(T& a, T& b)
 {
     return (a < b ? a : b);
 }
 
 template <typename T>
-T max(const T& a, const T& b)
+T& max(T& a, T& b)
 {
     return (a > b ? a : b);
 }
