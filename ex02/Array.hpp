@@ -6,11 +6,12 @@
 /*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 01:09:15 by jpceia            #+#    #+#             */
-/*   Updated: 2021/12/22 23:03:58 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/12/23 00:31:33 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstdlib>  // for rand()
+#include <cstdlib>
+#include <cstring>
 
 template <typename T>
 class Array
@@ -42,45 +43,30 @@ public:
 
 template <typename T>
 Array<T>::Array(void)
+    : _arr(NULL), _size(0)
 {
-    _size = 0;
-    _arr = NULL;
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n) :
-    _size(n)
+    _arr(new T[n]), _size(n)
 {
-    if (_size > 0)
-    {
-        _arr = new T[n];
-        for (unsigned int i = 0; i < n; i++)
-            _arr[i] = 0;
-    }
-    else
-        _arr = NULL;
+    std::memset(_arr, 0, sizeof(T) * _size);
 }
 
 template <typename T>
 Array<T>::Array(Array const &rhs)
     : _size(rhs._size)
 {
-    if (rhs._size > 0)
-    {
-        _arr = new T[rhs._size];
-        for (unsigned int i = 0; i < rhs._size; i++)
-            _arr[i] = rhs._arr[i];
-    }
-    else
-        _arr = NULL;
+    _arr = new T[rhs._size];
+    for (unsigned int i = 0; i < rhs._size; i++)
+        _arr[i] = rhs._arr[i];
 }
 
 template <typename T>
 Array<T>::~Array(void)
 {
-    if (_arr)
-        delete [] _arr;
-    _arr = NULL;
+    delete[] _arr;
 }
 
 template <typename T>
@@ -91,12 +77,8 @@ Array<T>& Array<T>::operator=(Array const &rhs)
         if (rhs._size != _size)
         {
             // needs to reallocate memory
-            if (_arr)
-                delete [] _arr;
-            if (rhs._size > 0)
-                _arr = new T[rhs._size];
-            else
-                _arr = NULL;
+            delete[] _arr;
+            _arr = new T[rhs._size];
             _size = rhs._size;
         }
         // copy the values
