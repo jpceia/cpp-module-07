@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 01:09:15 by jpceia            #+#    #+#             */
-/*   Updated: 2021/12/23 00:31:33 by jpceia           ###   ########.fr       */
+/*   Updated: 2022/01/04 12:49:51 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstdlib>
-#include <cstring>
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
+
+# include <cstdlib>
+# include <cstring>
 
 template <typename T>
 class Array
@@ -115,3 +118,5 @@ const T *Array<T>::ptr(void) const
 {
     return _arr;
 }
+
+#endif

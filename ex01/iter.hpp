@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 00:58:06 by jpceia            #+#    #+#             */
-/*   Updated: 2021/12/23 00:06:40 by jpceia           ###   ########.fr       */
+/*   Updated: 2022/01/04 12:49:15 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ITER_HPP
+# define ITER_HPP
+
+# include <iostream>
 
 template <typename T>
 void iter(T *arr, int length, void (*f)(T &))
@@ -23,3 +28,5 @@ void iter(T *arr, int length, void (*f)(const T&))
     for (int i = 0; i < length; i++)
         f(arr[i]);
 }
+
+#endif
