@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 01:09:15 by jpceia            #+#    #+#             */
-/*   Updated: 2022/01/04 12:49:51 by jceia            ###   ########.fr       */
+/*   Updated: 2022/01/04 12:57:24 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,14 @@ public:
 
 template <typename T>
 Array<T>::Array(void)
-    : _arr(NULL), _size(0)
+    : _arr(new T[0]), _size(0)
 {
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n) :
-    _arr(new T[n]), _size(n)
+    _arr(new T[n]()), _size(n)
 {
-    std::memset(_arr, 0, sizeof(T) * _size);
 }
 
 template <typename T>
