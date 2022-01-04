@@ -23,9 +23,12 @@ void iter(T *arr, int length, void (*f)(T &))
 }
 
 template <typename T>
-void iter(T *arr, int length, void (*f)(const T&))
+void iter(T *arr, std::size_t length, void (*f)(const T&))
 {
-    for (int i = 0; i < length; i++)
+    for (std::size_t i = 0; i < length; i++)
+        f(arr[i]);
+}
+
         f(arr[i]);
 }
 
